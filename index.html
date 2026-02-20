@@ -33,13 +33,11 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            /* สร้างลายเส้น Grid และจุดแสง */
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 radial-gradient(circle at center, rgba(40, 40, 40, 0.1) 0%, transparent 80%);
             background-size: 60px 60px, 60px 60px, cover;
-            /* อนิเมชั่นการเคลื่อนไหว */
             animation: moveBackground 20s linear infinite;
             z-index: 0;
         }
@@ -51,13 +49,13 @@
 
         .container {
             text-align: center;
-            z-index: 1; /* ให้อยู่เหนือพื้นหลัง */
+            z-index: 1;
         }
 
-        /* หัวข้อหลัก BASTIENBOYZ */
+        /* หัวข้อหลัก */
         h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2rem, 8vw, 4rem); /* ปรับขนาดตามหน้าจออัตโนมัติ */
+            font-size: clamp(2rem, 8vw, 4rem);
             letter-spacing: 12px;
             margin-bottom: 50px;
             text-transform: uppercase;
@@ -73,34 +71,33 @@
             align-items: center;
         }
 
-        /* ปรับขนาดป้ายให้เหมือนในรูป */
+        /* ปรับขนาดป้ายให้เหมือนต้นฉบับ */
         .btn {
             display: inline-block;
-            width: 350px; /* เพิ่มความกว้าง */
-            padding: 18px 0; /* เพิ่มความสูงของป้าย */
+            width: 350px; 
+            padding: 18px 0;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.85rem;
             color: #ffffff;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 3px;
-            background: rgba(255, 255, 255, 0.03); /* โปร่งแสงเล็กน้อย */
-            border: 1px solid rgba(255, 255, 255, 0.15); /* เส้นขอบบางๆ */
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 4px;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             backdrop-filter: blur(10px);
             cursor: pointer;
         }
 
-        /* เอฟเฟกต์ตอน Hover (เมาส์ชี้) */
         .btn:hover {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.6);
-            letter-spacing: 5px; /* ตัวอักษรขยายออกเวลาชี้ */
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            letter-spacing: 5px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
         }
 
-        /* ส่วนท้าย */
+        /* --- ส่วนท้าย และเอฟเฟกต์เรืองแสงของ OSHI --- */
         footer {
             position: absolute;
             bottom: 30px;
@@ -109,6 +106,25 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             z-index: 1;
+        }
+
+        .oshi-link {
+            color: #ffffff; /* ตัวอักษรขาว */
+            text-decoration: none;
+            font-weight: 700;
+            margin-left: 5px;
+            /* เอฟเฟกต์เรืองแสง (Glow) */
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
+                         0 0 10px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .oshi-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 1), 
+                         0 0 20px rgba(255, 255, 255, 0.8), 
+                         0 0 30px rgba(255, 255, 255, 0.6);
+            letter-spacing: 3px;
         }
 
         /* ปรับแต่งสำหรับมือถือ */
@@ -127,12 +143,13 @@
 
         <div class="button-group">
             <a href="#" class="btn">MEMBER ALL</a>
-            <a href="#" class="btn">Youtube</a>
+            <a href="https://www.youtube.com/@Lucasmarco_04" target="_blank" class="btn">Youtube</a>
         </div>
     </div>
 
     <footer>
-        © 2026 Dernyoungsay — Created by Oshi
+        © 2026 Dernyoungsay — Created by 
+        <a href="https://www.facebook.com/oshi.changretta" target="_blank" class="oshi-link">Oshi</a>
     </footer>
 
 </body>
