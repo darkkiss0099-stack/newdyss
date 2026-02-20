@@ -25,7 +25,7 @@
             position: relative;
         }
 
-        /* --- เอฟเฟกต์พื้นหลังขยับได้ --- */
+        /* --- พื้นหลังขยับได้ --- */
         body::before {
             content: "";
             position: absolute;
@@ -52,7 +52,6 @@
             z-index: 1;
         }
 
-        /* หัวข้อหลัก */
         h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: clamp(2rem, 8vw, 4rem);
@@ -63,41 +62,53 @@
             opacity: 0.9;
         }
 
-        /* กลุ่มปุ่ม */
         .button-group {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px; /* เพิ่มระยะห่างระหว่างปุ่มเล็กน้อยตามรูป */
             align-items: center;
         }
 
-        /* ปรับขนาดป้ายให้เหมือนต้นฉบับ */
+        /* --- ปรับขนาดและดีไซน์ป้ายให้เหมือนในรูปใหม่ --- */
         .btn {
-            display: inline-block;
-            width: 350px; 
-            padding: 18px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 420px; /* ปรับความกว้างให้สมส่วนตามรูป */
+            height: 85px;  /* ปรับความสูงให้ดูหนาเหมือนในรูป */
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
+            font-size: 1.1rem; /* ขนาดตัวอักษรพอดีตา */
             color: #ffffff;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 4px;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            letter-spacing: 4px;
+            
+            /* พื้นหลังไล่เฉดมืดและมีความโปร่งแสง */
+            background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.9));
+            
+            /* เส้นขอบมีความมน (Radius) มากขึ้นตามรูป */
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px; 
+            
+            /* เพิ่มเงาทั้งภายนอกและภายในให้ดูมีมิติ (Inner Shadow) */
+            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05), 
+                        0 10px 30px rgba(0, 0, 0, 0.5);
+            
+            transition: all 0.4s ease;
             backdrop-filter: blur(10px);
             cursor: pointer;
         }
 
+        /* เอฟเฟกต์ตอน Hover */
         .btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.6);
-            letter-spacing: 5px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+            background: linear-gradient(145deg, rgba(40, 40, 40, 1), rgba(20, 20, 20, 1));
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1), 
+                        0 15px 40px rgba(0, 0, 0, 0.6);
+            letter-spacing: 6px;
         }
 
-        /* --- ส่วนท้าย และเอฟเฟกต์เรืองแสงของ OSHI --- */
         footer {
             position: absolute;
             bottom: 30px;
@@ -109,29 +120,27 @@
         }
 
         .oshi-link {
-            color: #ffffff; /* ตัวอักษรขาว */
+            color: #ffffff;
             text-decoration: none;
             font-weight: 700;
             margin-left: 5px;
-            /* เอฟเฟกต์เรืองแสง (Glow) */
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 
-                         0 0 10px rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 
+                         0 0 15px rgba(255, 255, 255, 0.4);
             transition: all 0.3s ease;
         }
 
         .oshi-link:hover {
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 1), 
-                         0 0 20px rgba(255, 255, 255, 0.8), 
-                         0 0 30px rgba(255, 255, 255, 0.6);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 1), 
+                         0 0 25px rgba(255, 255, 255, 0.7);
             letter-spacing: 3px;
         }
 
-        /* ปรับแต่งสำหรับมือถือ */
+        /* สำหรับมือถือ */
         @media (max-width: 480px) {
             .btn {
-                width: 280px;
-                font-size: 0.75rem;
+                width: 300px;
+                height: 70px;
+                font-size: 0.9rem;
             }
         }
     </style>
