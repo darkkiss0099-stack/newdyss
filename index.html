@@ -65,41 +65,41 @@
         .button-group {
             display: flex;
             flex-direction: column;
-            gap: 25px; /* เพิ่มระยะห่างระหว่างปุ่มเล็กน้อยตามรูป */
+            gap: 20px; 
             align-items: center;
         }
 
-        /* --- ปรับขนาดและดีไซน์ป้ายให้เหมือนในรูปใหม่ --- */
+        /* --- ป้ายมาตรฐาน (MEMBER ALL) --- */
         .btn {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 420px; /* ปรับความกว้างให้สมส่วนตามรูป */
-            height: 85px;  /* ปรับความสูงให้ดูหนาเหมือนในรูป */
+            width: 420px; 
+            height: 85px;  
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem; /* ขนาดตัวอักษรพอดีตา */
+            font-size: 1.1rem;
             color: #ffffff;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 4px;
-            
-            /* พื้นหลังไล่เฉดมืดและมีความโปร่งแสง */
             background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.9));
-            
-            /* เส้นขอบมีความมน (Radius) มากขึ้นตามรูป */
             border: 1.5px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px; 
-            
-            /* เพิ่มเงาทั้งภายนอกและภายในให้ดูมีมิติ (Inner Shadow) */
             box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05), 
                         0 10px 30px rgba(0, 0, 0, 0.5);
-            
             transition: all 0.4s ease;
             backdrop-filter: blur(10px);
             cursor: pointer;
         }
 
-        /* เอฟเฟกต์ตอน Hover */
+        /* --- ปรับแต่งป้าย YOUTUBE ให้เล็กกว่า --- */
+        .btn-small {
+            width: 320px; /* เล็กลงจาก 420px */
+            height: 65px;  /* เล็กลงจาก 85px */
+            font-size: 0.9rem; /* ปรับตัวอักษรให้เล็กลงตามป้าย */
+            letter-spacing: 3px;
+        }
+
         .btn:hover {
             background: linear-gradient(145deg, rgba(40, 40, 40, 1), rgba(20, 20, 20, 1));
             border-color: rgba(255, 255, 255, 0.4);
@@ -107,6 +107,10 @@
             box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1), 
                         0 15px 40px rgba(0, 0, 0, 0.6);
             letter-spacing: 6px;
+        }
+
+        .btn-small:hover {
+            letter-spacing: 5px; /* ปรับการขยายตัวอักษรของปุ่มเล็กเวลา hover */
         }
 
         footer {
@@ -135,13 +139,9 @@
             letter-spacing: 3px;
         }
 
-        /* สำหรับมือถือ */
         @media (max-width: 480px) {
-            .btn {
-                width: 300px;
-                height: 70px;
-                font-size: 0.9rem;
-            }
+            .btn { width: 280px; height: 70px; font-size: 0.9rem; }
+            .btn-small { width: 220px; height: 55px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -152,7 +152,7 @@
 
         <div class="button-group">
             <a href="#" class="btn">MEMBER ALL</a>
-            <a href="https://www.youtube.com/@Lucasmarco_04" target="_blank" class="btn">Youtube</a>
+            <a href="https://www.youtube.com/@Lucasmarco_04" target="_blank" class="btn btn-small">Youtube</a>
         </div>
     </div>
 
