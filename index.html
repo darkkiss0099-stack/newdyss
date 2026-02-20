@@ -52,6 +52,7 @@
             z-index: 1;
         }
 
+        /* --- หัวข้อหลัก ขยับได้และเรืองแสง --- */
         h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: clamp(2rem, 8vw, 4rem);
@@ -59,7 +60,29 @@
             margin-bottom: 50px;
             text-transform: uppercase;
             font-weight: 700;
-            opacity: 0.9;
+            color: #ffffff;
+            /* ใส่เงาเรืองแสงเริ่มต้น */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            /* ใส่ Animation ขยับ (Floating) และ เรืองแสง (GlowPulse) */
+            animation: floatText 4s ease-in-out infinite, glowPulse 3s ease-in-out infinite;
+        }
+
+        /* อนิเมชั่นขยับขึ้นลง */
+        @keyframes floatText {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* อนิเมชั่นเรืองแสงวูบวาบ */
+        @keyframes glowPulse {
+            0%, 100% { 
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+                opacity: 0.8;
+            }
+            50% { 
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.4);
+                opacity: 1;
+            }
         }
 
         .button-group {
@@ -94,9 +117,9 @@
 
         /* --- ปรับแต่งป้าย YOUTUBE ให้เล็กกว่า --- */
         .btn-small {
-            width: 320px; /* เล็กลงจาก 420px */
-            height: 65px;  /* เล็กลงจาก 85px */
-            font-size: 0.9rem; /* ปรับตัวอักษรให้เล็กลงตามป้าย */
+            width: 320px; 
+            height: 65px;  
+            font-size: 0.9rem; 
             letter-spacing: 3px;
         }
 
@@ -107,10 +130,6 @@
             box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1), 
                         0 15px 40px rgba(0, 0, 0, 0.6);
             letter-spacing: 6px;
-        }
-
-        .btn-small:hover {
-            letter-spacing: 5px; /* ปรับการขยายตัวอักษรของปุ่มเล็กเวลา hover */
         }
 
         footer {
@@ -140,6 +159,7 @@
         }
 
         @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; letter-spacing: 6px; }
             .btn { width: 280px; height: 70px; font-size: 0.9rem; }
             .btn-small { width: 220px; height: 55px; font-size: 0.8rem; }
         }
