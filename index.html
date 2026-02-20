@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BASTIENBOYZ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <title>DERNYOUNGSAY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300&display=swap" rel="stylesheet">
     
     <style>
-        /* ตั้งค่าพื้นฐาน */
         * {
             margin: 0;
             padding: 0;
@@ -16,12 +15,6 @@
 
         body {
             background-color: #050505;
-            /* พื้นหลังแบบเส้นใยแมงมุม/Geometric (จำลองจากภาพ) */
-            background-image: 
-                radial-gradient(circle at center, rgba(40, 40, 40, 0.2) 0%, transparent 70%),
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 100% 100%, 50px 50px, 50px 50px;
             color: #ffffff;
             font-family: 'Inter', sans-serif;
             height: 100vh;
@@ -29,84 +22,117 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            position: relative;
+        }
+
+        /* --- เอฟเฟกต์พื้นหลังขยับได้ --- */
+        body::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            /* สร้างลายเส้น Grid และจุดแสง */
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at center, rgba(40, 40, 40, 0.1) 0%, transparent 80%);
+            background-size: 60px 60px, 60px 60px, cover;
+            /* อนิเมชั่นการเคลื่อนไหว */
+            animation: moveBackground 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes moveBackground {
+            from { transform: translate(0, 0); }
+            to { transform: translate(60px, 60px); }
         }
 
         .container {
             text-align: center;
-            z-index: 1;
+            z-index: 1; /* ให้อยู่เหนือพื้นหลัง */
         }
 
-        /* หัวข้อหลัก */
+        /* หัวข้อหลัก BASTIENBOYZ */
         h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            letter-spacing: 8px;
-            margin-bottom: 40px;
+            font-size: clamp(2rem, 8vw, 4rem); /* ปรับขนาดตามหน้าจออัตโนมัติ */
+            letter-spacing: 12px;
+            margin-bottom: 50px;
             text-transform: uppercase;
             font-weight: 700;
+            opacity: 0.9;
         }
 
-        /* สไตล์ปุ่ม */
+        /* กลุ่มปุ่ม */
         .button-group {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
             align-items: center;
         }
 
+        /* ปรับขนาดป้ายให้เหมือนในรูป */
         .btn {
             display: inline-block;
-            width: 280px;
-            padding: 12px 20px;
+            width: 350px; /* เพิ่มความกว้าง */
+            padding: 18px 0; /* เพิ่มความสูงของป้าย */
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #ffffff;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 3px;
+            background: rgba(255, 255, 255, 0.03); /* โปร่งแสงเล็กน้อย */
+            border: 1px solid rgba(255, 255, 255, 0.15); /* เส้นขอบบางๆ */
             border-radius: 4px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
         }
 
+        /* เอฟเฟกต์ตอน Hover (เมาส์ชี้) */
         .btn:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 5px; /* ตัวอักษรขยายออกเวลาชี้ */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
 
         /* ส่วนท้าย */
         footer {
             position: absolute;
             bottom: 30px;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.4);
-            letter-spacing: 1px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 1;
         }
 
         /* ปรับแต่งสำหรับมือถือ */
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; letter-spacing: 4px; }
-            .btn { width: 220px; font-size: 0.8rem; }
+        @media (max-width: 480px) {
+            .btn {
+                width: 280px;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>BASTIENBOYZ</h1>
+        <h1>MEMBER DERNYOUNGSAY</h1>
 
         <div class="button-group">
-            <a href="#" class="btn">Member Bastienboyz</a>
-            <a href="https://www.youtube.com" target="_blank" class="btn">Youtube</a>
+            <a href="#" class="btn">DERNYOUNGSAY</a>
+            <a href="#" class="btn">Youtube</a>
         </div>
     </div>
 
     <footer>
-        © 2025 Bastienboyz — Designed by Leo Shooter
+        © 2026 Dernyoungsay — Created by Oshi
     </footer>
 
 </body>
